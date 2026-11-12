@@ -1,0 +1,97 @@
+---
+import { Menu, X, Phone, Mail } from 'lucide-astro';
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-slate-50/90 backdrop-blur-md border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white">
+          <span class="text-sm font-bold">P</span>
+        </div>
+        <span class="text-xl font-bold tracking-tight">Perusahaan</span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#tentang" class="text-slate-600 hover:text-brand-600 transition-colors font-medium text-sm">Tentang Kami</a>
+        <a href="#layanan" class="text-slate-600 hover:text-brand-600 transition-colors font-medium text-sm">Layanan</a>
+        <a href="#portofolio" class="text-slate-600 hover:text-brand-600 transition-colors font-medium text-sm">Portofolio</a>
+        <a href="#testimoni" class="text-slate-600 hover:text-brand-600 transition-colors font-medium text-sm">Testimoni</a>
+        <a href="#faq" class="text-slate-600 hover:text-brand-600 transition-colors font-medium text-sm">FAQ</a>
+        <a href="#kontak" class="px-5 py-2.5 bg-brand-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors text-sm">
+          Hubungi Kami
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex items-center gap-4">
+        <button id="mobile-menu-btn" class="text-slate-900 hover:text-brand-600 transition-colors p-2 rounded-lg hover:bg-slate-100">
+          <Menu class="w-6 h-6" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden md:hidden"></div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed top-20 left-0 right-0 bg-slate-50 border-b border-slate-200 z-[60] hidden md:hidden shadow-xl">
+    <div class="max-w-7xl mx-auto px-4 py-6 space-y-4">
+      <a href="#tentang" class="block text-slate-600 hover:text-brand-600 py-3 px-4 rounded-xl transition-colors hover:bg-slate-50">Tentang Kami</a>
+      <a href="#layanan" class="block text-slate-600 hover:text-brand-600 py-3 px-4 rounded-xl transition-colors hover:bg-slate-50">Layanan</a>
+      <a href="#portofolio" class="block text-slate-600 hover:text-brand-600 py-3 px-4 rounded-xl transition-colors hover:bg-slate-50">Portofolio</a>
+      <a href="#testimoni" class="block text-slate-600 hover:text-brand-600 py-3 px-4 rounded-xl transition-colors hover:bg-slate-50">Testimoni</a>
+      <a href="#faq" class="block text-slate-600 hover:text-brand-600 py-3 px-4 rounded-xl transition-colors hover:bg-slate-50">FAQ</a>
+      <a href="#kontak" class="block w-full text-center py-4 px-4 bg-brand-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors">
+        Hubungi Kami
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('mobile-menu-overlay');
+  const icon = btn?.querySelector('svg');
+  const mobileLinks = document.querySelectorAll('#mobile-menu a');
+
+  function toggleMenu() {
+    const isOpen = menu?.classList.contains('hidden');
+    if (isOpen) {
+      menu?.classList.remove('hidden');
+      overlay?.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      if (icon) {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+      }
+    } else {
+      menu?.classList.add('hidden');
+      overlay?.classList.add('hidden');
+      document.body.style.overflow = '';
+      if (icon) {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+      }
+    }
+  }
+
+  function closeMenu() {
+    menu?.classList.add('hidden');
+    overlay?.classList.add('hidden');
+    document.body.style.overflow = '';
+    if (icon) {
+      icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+    }
+  }
+
+  btn?.addEventListener('click', toggleMenu);
+  overlay?.addEventListener('click', closeMenu);
+
+  // Close menu when clicking any link
+  mobileLinks.forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+</script>

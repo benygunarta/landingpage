@@ -1,0 +1,64 @@
+---
+import { Quote } from 'lucide-astro';
+
+const testimonials = [
+  {
+    name: 'Sarah Johnson',
+    role: 'CEO, TechStart',
+    company: 'TechStart Inc.',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face&auto=format',
+    content: "Kinerja tim luar biasa. Website baru kami kini lebih cepat dan konversi meningkat 40% dalam sebulan.",
+    rating: 5,
+  },
+  {
+    name: 'Michael Chen',
+    role: 'Founder, GreenLeaf',
+    company: 'GreenLeaf Co.',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face&auto=format',
+    content: "Solusi digital yang tepat sasaran. Tim sangat profesional dan selalu tepat waktu dalam menyelesaikan proyek.",
+    rating: 5,
+  },
+  {
+    name: 'Aisha Rahman',
+    role: 'Marketing Director, UrbanShop',
+    company: 'UrbanShop',
+    image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377f66?w=200&h=200&fit=crop&crop=face&auto=format',
+    content: "Layanan yang luar biasa. Aplikasi mobile kami sekarang lebih user-friendly dan mendapatkan ulasan positif dari pengguna.",
+    rating: 5,
+  },
+];
+---
+
+<section id="testimoni" class="py-16 sm:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 animate-fade-up">
+      <div class="flex items-center justify-center gap-2 text-brand-600 mb-6">
+        <span class="text-sm font-semibold uppercase tracking-widing">Testimoni</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-6">
+        Apa Kata Klien Kami
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      {testimonials.map((testimonial, idx) => (
+        <div class="p-8 rounded-2xl border border-slate-200 bg-slate-50 hover:border-brand-600 transition-colors duration-300">
+          <div class="flex items-center gap-2 text-yellow-400 mb-6">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <Quote class="w-4 h-4 fill-yellow-400" />
+            ))}
+          </div>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6 italic">"{testimonial.content}"</p>
+          <div class="flex items-center gap-4">
+            <img src={testimonial.image} alt={testimonial.name} class="w-10 h-10 rounded-full object-cover" loading="lazy" />
+            <div>
+              <div class="text-sm font-bold text-slate-900">{testimonial.name}</div>
+              <div class="text-xs text-slate-500">{testimonial.role}</div>
+              <div class="text-xs text-brand-600 font-medium">{testimonial.company}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

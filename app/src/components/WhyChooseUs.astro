@@ -1,0 +1,54 @@
+---
+import { Zap, ShieldCheck, Clock, Tag } from 'lucide-astro';
+
+const benefits = [
+  {
+    icon: Zap,
+    title: 'Cepat & Efisien',
+    description: 'Proses pengembangan yang cepat tanpa mengorbankan kualitas hasil akhir.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Terjamin Keamanan',
+    description: 'Semua solusi yang kami bangun memenuhi standar keamanan terbaik.',
+  },
+  {
+    icon: Clock,
+    title: 'Tepat Waktu',
+    description: 'Komitmen untuk selalu menyampaikan proyek sesuai jadwal yang disepakati.',
+  },
+  {
+    icon: Tag,
+    title: 'Harga Transparan',
+    description: 'Tidak ada biaya tersembunyi. Semua biaya dikomunikasikan dengan jelas sejak awal.',
+  },
+];
+---
+
+<section id="keunggulan" class="py-16 sm:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 animate-fade-up">
+      <div class="flex items-center justify-center gap-2 text-brand-600 mb-6">
+        <span class="text-sm font-semibold uppercase tracking-widing">Mengapa Memilih Kami</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-6">
+        Keunggulan Kami
+      </h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+        Alasan mengapa ratusan perusahaan memilih kami sebagai mitra digital mereka.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {benefits.map((benefit) => (
+        <div class="p-8 rounded-2xl border border-slate-200 bg-white hover:shadow-md transition-shadow duration-300">
+          <div class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 mb-6">
+            <benefit.icon class="w-5 h-5" />
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-3">{benefit.title}</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">{benefit.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

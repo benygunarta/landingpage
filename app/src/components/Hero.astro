@@ -1,0 +1,76 @@
+---
+import { ArrowRight, Play } from 'lucide-astro';
+---
+
+<section id="beranda" class="relative pt-24 pb-16 lg:pt-48 lg:pb-32 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+      <div class="space-y-6 animate-fade-up">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 text-brand-600 text-xs font-semibold rounded-full uppercase tracking-wider mb-2">
+          <span class="w-2 h-2 rounded-full bg-brand-600 animate-pulse"></span>
+          Terpercaya oleh 500+ Perusahaan
+        </div>
+
+        <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold text-slate-900 leading-tight">
+          Solusi Digital yang<br />
+          <span class="text-brand-600">Membantu Bisnis Tumbuh</span>
+        </h1>
+
+        <p class="text-base md:text-lg text-slate-600 leading-relaxed max-w-md sm:max-w-xl">
+          Kami membantu perusahaan modern membangun kemampuan digital dengan solusi yang scalable, aman, dan hasil-driven. Dari strategi hingga eksekusi.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <a href="#kontak" class="px-6 sm:px-8 py-3.5 sm:py-4 bg-brand-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 text-center sm:text-left text-sm sm:text-base">
+            <ArrowRight class="w-4 sm:w-5 h-4 sm:h-5" /> Mulai Proyek
+          </a>
+          <a href="#portofolio" class="px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-slate-900 border border-slate-200 rounded-xl font-semibold hover:bg-slate-50 transition-colors flex items-center justify-center gap-2 text-center sm:text-left text-sm sm:text-base">
+            <Play class="w-4 sm:w-5 h-4 sm:h-5" /> Lihat Portofolio
+          </a>
+        </div>
+      </div>
+
+      <div class="relative animate-fade-up" style="animation-delay: 0.2s;">
+        <div class="absolute -inset-1 bg-gradient-to-r from-brand-600 to-blue-400 rounded-2xl blur opacity-20"></div>
+        <div class="relative bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 md:p-12 shadow-lg shadow-slate-100/50">
+          <div class="grid grid-cols-2 gap-4 sm:gap-6 text-center">
+            <div>
+              <div class="text-xl sm:text-2xl font-bold text-brand-600">10+</div>
+              <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Tahun Pengalaman</div>
+            </div>
+            <div>
+              <div class="text-xl sm:text-2xl font-bold text-brand-600">500+</div>
+              <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Klien Puas</div>
+            </div>
+            <div>
+              <div class="text-xl sm:text-2xl font-bold text-brand-600">200+</div>
+              <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Proyek Selesai</div>
+            </div>
+            <div>
+              <div class="text-xl sm:text-2xl font-bold text-brand-600">24/7</div>
+              <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Dukungan</div>
+            </div>
+          </div>
+
+          <div class="mt-8 sm:mt-12">
+            <div class="w-full bg-slate-100 rounded-full h-2.5 mb-3 sm:mb-4">
+              <div class="bg-brand-600 h-2.5 rounded-full" style="width: 95%"></div>
+            </div>
+            <div class="flex justify-between text-xs text-slate-500">
+              <span>Kepuasan Pelanggan</span>
+              <span>95%</span>
+            </div>
+
+            <div class="w-full bg-slate-100 rounded-full h-2.5 mb-3 sm:mb-4 mt-4 sm:mt-6">
+              <div class="bg-brand-600 h-2.5 rounded-full" style="width: 88%"></div>
+            </div>
+            <div class="flex justify-between text-xs text-slate-500">
+              <span>Tepat Waktu</span>
+              <span>88%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,46 @@
+@import 'tailwindcss';
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  /* Mobile-safe area for notch devices */
+  .safe-area-pb {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .safe-area-pt {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+
+  /* Ensure touch targets are at least 44x44px for accessibility */
+  button, a[role="button"], .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Prevent horizontal overflow on mobile */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-padding-top: 80px; /* Account for fixed navbar */
+  }
+
+  @media (max-width: 768px) {
+    html {
+      scroll-padding-top: 70px;
+    }
+  }
+}

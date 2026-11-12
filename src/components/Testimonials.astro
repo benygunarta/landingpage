@@ -1,0 +1,93 @@
+---
+// Testimonials.astro — Ulasan klien dengan foto profil asli dari Unsplash (gratis, komersial)
+// Sumber foto profil: https://unsplash.com/s/photos/profile  |  https://www.pexels.com/search/profile/
+const testimonials = [
+  {
+    name: "Siti Rahayu",
+    role: "Pemilik Toko Batik",
+    company: "Toko Batik Siti",
+    rating: 5,
+    avatar:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face&auto=format",
+    text: "Landing page yang dibuat sangat profesional dan cepat diakses di pelanggan. Penjualan kami naik 40% dalam sebulan setelah peluncuran.",
+  },
+  {
+    name: "Budi Santoso",
+    role: "Pemilik Bengkel Motor",
+    company: "Bengkel Jaya Abadi",
+    rating: 5,
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face&auto=format",
+    text: "Tim sangat responsive dan memahami kebutuhan UMKM kami. Harga transparan dan tidak ada biaya tersembunyi.",
+  },
+  {
+    name: "Dewi Lestari",
+    role: "Pengusaha Culiner",
+    company: "Catering Nusantara",
+    rating: 5,
+    avatar:
+      "https://images.unsplash.com/photo-1535713875002-d1d0cf377f66?w=200&h=200&fit=crop&crop=face&auto=format",
+    text: "Proses pembuatan website sangat mudah dan hasilnya melebihi ekspektasi. Sekarang klien bisa memesan online dengan nyaman.",
+  },
+  {
+    name: "Ahmad Fauzi",
+    role: "Pemilik Toko Elektronik",
+    company: "Toko Elektro Makmur",
+    rating: 4,
+    avatar:
+      "https://images.unsplash.com/photo-1527980965255-d3b5163034e9?w=200&h=200&fit=crop&crop=face&auto=format",
+    text: "Pelayanan prima dan dukungan setelah jual sangat membantu kami dalam mengelola katalog produk online.",
+  },
+];
+---
+<section class="py-16 md:py-24" aria-label="Testimoni klien">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-3">
+        Apa Kata Klien Kami
+      </h2>
+      <p class="text-slate-600 max-w-xl mx-auto">
+        Ulasan jujur dari klien yang telah kami layani. Kepercayaan adalah
+        prioritas kami.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {testimonials.map((t) => (
+        <article
+          class="bg-white p-8 md:p-10 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-300"
+        >
+          <div class="flex items-center gap-4 mb-6">
+            <img
+              src={t.avatar}
+              alt={t.name}
+              class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-slate-200"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <h3 class="text-base font-semibold text-slate-900 leading-tight">
+                {t.name}
+              </h3>
+              <p class="text-xs text-slate-500">
+                {t.role}, {t.company}
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-1 mb-6 text-yellow-500">
+            {[...Array(5)].map((_, i) => (
+              <span class={i < t.rating ? "text-yellow-500" : "text-slate-200"}>
+                ★
+              </span>
+            ))}
+          </div>
+
+          <p class="text-slate-600 leading-relaxed text-sm md:text-base">
+            “{t.text}”
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

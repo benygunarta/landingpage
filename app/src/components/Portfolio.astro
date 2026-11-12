@@ -1,0 +1,71 @@
+---
+import { ExternalLink } from 'lucide-astro';
+
+const portfolio = [
+  {
+    title: 'E-Commerce Platform',
+    category: 'Retail',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?w=400&h=300&fit=crop&auto=format',
+    description: 'Platform e-commerce lengkap dengan sistem pembayaran dan manajemen inventori.',
+  },
+  {
+    title: 'Corporate Website',
+    category: 'Professional Services',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop&auto=format',
+    description: 'Website perusahaan modern dengan desain minimalis dan performa tinggi.',
+  },
+  {
+    title: 'Mobile App',
+    category: 'Healthcare',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=300&fit=crop&auto=format',
+    description: 'Aplikasi kesehatan untuk konsultasi dokter secara online.',
+  },
+  {
+    title: 'SaaS Dashboard',
+    category: 'Technology',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&auto=format',
+    description: 'Dashboard analitik untuk monitoring bisnis secara real-time.',
+  },
+];
+---
+
+<section id="portofolio" class="py-16 sm:py-24 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 animate-fade-up">
+      <div class="flex items-center justify-center gap-2 text-brand-600 mb-6">
+        <span class="text-sm font-semibold uppercase tracking-widing">Portofolio</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-6">
+        Beberapa Karya Kami
+      </h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+        Bukti nyata dari proyek-proyek yang telah kami kerjakan untuk klien kami.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {portfolio.map((item) => (
+        <div class="group relative rounded-2xl overflow-hidden border border-slate-200 bg-white hover:shadow-xl transition-all duration-300">
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src={item.image}
+              alt={item.title}
+              class="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="absolute inset-0 bg-brand-600/0 group-hover:bg-brand-600/10 transition-colors duration-300"></div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-lg font-bold text-slate-900">{item.title}</h3>
+              <ExternalLink class="w-4 h-4 text-slate-400 group-hover:text-brand-600 transition-colors" />
+            </div>
+            <p class="text-xs text-brand-600 font-medium mb-3">{item.category}</p>
+            <p class="text-slate-600 text-sm leading-relaxed">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

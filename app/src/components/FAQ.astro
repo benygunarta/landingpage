@@ -1,0 +1,74 @@
+---
+import { ChevronDown, ChevronUp } from 'lucide-astro';
+
+const faqs = [
+  {
+    question: 'Layanan apa saja yang ditawarkan perusahaan?',
+    answer: 'Kami menawarkan pengembangan web, strategi digital, keamanan & konsultasi, serta aplikasi mobile. Semua layanan dapat disesuaikan dengan kebutuhan bisnis Anda.',
+  },
+  {
+    question: 'Berapa lama waktu pengerjaan proyek?',
+    answer: 'Waktu pengerjaan tergantung pada kompleksitas proyek. Biasanya berkisar antara 2-8 minggu untuk proyek standar.',
+  },
+  {
+    question: 'Apakah ada dukungan setelah peluncuran?',
+    answer: 'Ya, kami memberikan dukungan dan maintenance setelah peluncuran untuk memastikan everything berjalan lancar.',
+  },
+  {
+    question: 'Bagaimana cara memulai proyek dengan kami?',
+    answer: 'Anda dapat mengisi formulir kontak atau langsung mengatur jadwal konsultasi gratis dengan tim kami.',
+  },
+];
+---
+
+<section id="faq" class="py-16 sm:py-24 bg-slate-50">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 sm:mb-16 animate-fade-up">
+      <div class="flex items-center justify-center gap-2 text-brand-600 mb-6">
+        <span class="text-sm font-semibold uppercase tracking-widing">FAQ</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-6">
+        Pertanyaan Umum
+      </h2>
+      <p class="text-base sm:text-lg text-slate-600 max-w-xl mx-auto leading-relaxed">
+        Berikut adalah beberapa pertanyaan yang sering diajukan oleh klien kami.
+      </p>
+    </div>
+
+    <div class="space-y-3 sm:space-y-4">
+      {faqs.map((faq, idx) => (
+        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+          <div class="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 cursor-pointer hover:bg-slate-50 transition-colors" id={`faq-header-${idx}`}>
+            <h3 class="text-slate-900 font-medium text-sm">{faq.question}</h3>
+            <ChevronDown class="w-4 h-4 text-slate-400 transition-transform" id={`faq-icon-${idx}`} />
+          </div>
+          <div class="px-4 sm:px-6 pb-3 sm:pb-4 text-slate-600 text-sm leading-relaxed hidden" id={`faq-content-${idx}`}>
+            {faq.answer}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const faqItems = document.querySelectorAll('[id^="faq-header-"]');
+  faqItems.forEach((header) => {
+    const idx = header.id.split('-').pop();
+    const content = document.getElementById(`faq-content-${idx}`);
+    const icon = document.getElementById(`faq-icon-${idx}`);
+    
+    header.addEventListener('click', () => {
+      const isOpen = !content.classList.contains('hidden');
+      
+      // Close all
+      document.querySelectorAll('[id^="faq-content-"]').forEach((c) => c.classList.add('hidden'));
+      document.querySelectorAll('[id^="faq-icon-"]').forEach((i) => i.style.transform = 'rotate(0deg)');
+      
+      if (!isOpen) {
+        content.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+</script>

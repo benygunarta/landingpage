@@ -1,0 +1,66 @@
+---
+import { Code2, BarChart3, Shield, Smartphone } from 'lucide-astro';
+
+const services = [
+  {
+    icon: Code2,
+    title: 'Pengembangan Web',
+    description: 'Website modern, responsif, dan performa tinggi yang dikembangkan dengan teknologi terbaru.',
+    features: ['Next.js / Astro', 'Tailwind CSS', 'SEO Optimized', 'Mobile Friendly'],
+  },
+  {
+    icon: BarChart3,
+    title: 'Digital Strategy',
+    description: 'Strategi digital yang berbasis data untuk membantu bisnis Anda tumbuh secara optimal.',
+    features: ['Market Research', 'Brand Strategy', 'Growth Hacking', 'Analytics'],
+  },
+  {
+    icon: Shield,
+    title: 'Keamanan & Konsultasi',
+    description: 'Jaminan keamanan data dan konsultasi teknis untuk kebutuhan digital perusahaan Anda.',
+    features: ['Security Audit', 'Compliance', 'Technical Consulting', 'Risk Assessment'],
+  },
+  {
+    icon: Smartphone,
+    title: 'Aplikasi Mobile',
+    description: 'Aplikasi mobile yang intuitive dan user-friendly untuk iOS dan Android.',
+    features: ['React Native', 'Flutter', 'iOS & Android', 'App Store Optimized'],
+  },
+];
+---
+
+<section id="layanan" class="py-24 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 animate-fade-up">
+      <div class="flex items-center justify-center gap-2 text-brand-600 mb-6">
+        <span class="text-sm font-semibold uppercase tracking-widing">Layanan Kami</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-6">
+        Solusi yang Kami Tawarkan
+      </h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+        Beragam layanan digital yang dirancang untuk membantu bisnis Anda tumbuh dan berkembang di era modern.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map((service) => (
+        <div class="bg-white rounded-2xl border border-slate-200 p-8 hover:border-brand-600 transition-all duration-300 hover:shadow-lg hover:shadow-brand-50/10 group">
+          <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+            <service.icon class="w-6 h-6" />
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-3">{service.title}</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">{service.description}</p>
+          <ul class="space-y-2">
+            {service.features.map((feature) => (
+              <li class="flex items-center gap-2 text-xs text-slate-500">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-600"></span>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
